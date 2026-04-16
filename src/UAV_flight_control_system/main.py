@@ -48,7 +48,7 @@ def orbit_mode():
 def start_orbit():
     threading.Thread(target=orbit_mode, daemon=True).start()
 
-# ======================= 方形飞行 =======================
+# ======================= 绕方形轨迹飞行 =======================
 def square_mode():
     length = 3
     speed = 1.2
