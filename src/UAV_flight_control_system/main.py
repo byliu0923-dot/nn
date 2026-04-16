@@ -50,7 +50,7 @@ def start_orbit():
 
 # ======================= 绕方形轨迹飞行 =======================
 def square_mode():
-    length = 3
+    length = 3.5
     speed = 1.2
     while is_flying:
         client.moveToPositionAsync(length, 0, HEIGHT, speed).join()
