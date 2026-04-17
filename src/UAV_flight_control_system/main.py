@@ -16,6 +16,8 @@ client.armDisarm(True)
 SPEED = 1.5
 HEIGHT = -3
 is_flying = True
+# ========== 飞行更加流畅 ==========
+smooth = 0.5
 
 # ======================= 起飞 =======================
 print("已连接无人机")
@@ -75,10 +77,10 @@ def on_press(key):
         if key.char == 'b':
             client.moveToPositionAsync(0,0,HEIGHT,1.5).join()
 
-        if key.char == 'w': client.moveByVelocityBodyFrameAsync(SPEED,0,0,0.1)
-        if key.char == 's': client.moveByVelocityBodyFrameAsync(-SPEED,0,0,0.1)
-        if key.char == 'a': client.moveByVelocityBodyFrameAsync(0,-SPEED,0,0.1)
-        if key.char == 'd': client.moveByVelocityBodyFrameAsync(0,SPEED,0,0.1)
+        if key.char == 'w': client.moveByVelocityBodyFrameAsync(SPEED*smooth,0,0,0.1)
+        if key.char == 's': client.moveByVelocityBodyFrameAsync(-SPEED*smooth,0,0,0.1)
+        if key.char == 'a': client.moveByVelocityBodyFrameAsync(0,-SPEED*smooth,0,0.1)
+        if key.char == 'd': client.moveByVelocityBodyFrameAsync(0,SPEED*smooth,0,0.1)
         if key.char == 'z': client.moveToZAsync(HEIGHT-0.5, 1)
         if key.char == 'x': client.moveToZAsync(HEIGHT+0.5, 1)
 
