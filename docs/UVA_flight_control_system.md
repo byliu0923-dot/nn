@@ -118,8 +118,9 @@ Threading|多线程并发处理，分离手动操控与自动轨迹任务
    time.sleep(2)
    client.moveToZAsync(HEIGHT, 1).join()
    ```
+   <img width="480" height="300" alt="4 1" src="https://github.com/user-attachments/assets/f5bf4e58-82bd-43b5-a5d0-b91aca3fc963" />
 
-### 4.2 无人机飞行时抖动严重
+### 4.2 飞行时抖动严重
 - 根本原因：
   
   原代码直接采用固定速度调用`moveByVelocityBodyFrameAsync`，无平滑系数处理，指令下发频率过高且速度突变；同时缺少速度分级机制，操控力度无法适配精细飞行需求。
@@ -137,7 +138,8 @@ Threading|多线程并发处理，分离手动操控与自动轨迹任务
    now_speed = SPEED * speed_ratio[speed_level - 1] * smooth
    client.moveByVelocityBodyFrameAsync(now_speed,0,0,0.1)
    ```
-  
+   <img width="480" height="300" alt="converted" src="https://github.com/user-attachments/assets/f9f4b3ad-7c67-44c5-bfde-ff34d3d56ee0" />  
+
 ### 4.3 按下自动返航键无人机无反应
 - 根本原因：
 
@@ -154,6 +156,7 @@ Threading|多线程并发处理，分离手动操控与自动轨迹任务
   if key.char == 'b':
       threading.Thread(target=auto_return_home, daemon=True).start()
   ```
+  <img width="480" height="300" alt="converted" src="https://github.com/user-attachments/assets/e8772df7-ec50-405f-80fc-56ea65aab325" />
   
 ### 4.4 自动轨迹模式运行时，键盘操控失灵无响应
 - 根本原因：
@@ -171,6 +174,8 @@ Threading|多线程并发处理，分离手动操控与自动轨迹任务
   if key.char == 'o': start_orbit()
   if key.char == 'm': start_square()
   ```
+  <img width="480" height="300" alt="环形4 4" src="https://github.com/user-attachments/assets/13f26fc4-21ce-4d4c-9dbf-a89680663e59" />
+  
 ### 4.5 无人机莫名掉高漂移，悬停功能失效
 - 根本原因：
 
@@ -192,6 +197,9 @@ Threading|多线程并发处理，分离手动操控与自动轨迹任务
       except:
           pass
   ```
+   <img width="480" height="300" alt="高度" src="https://github.com/user-attachments/assets/4513e223-bb60-4706-b95b-61e97a6c4600" />
+
+
 ## 5. 系统运行效果
 ### 5.1 运行环境
 |项目|配置参数|
@@ -223,10 +231,21 @@ Threading|多线程并发处理，分离手动操控与自动轨迹任务
 | ESC   | 退出系统        |
 
 ### 5.4 运行效果
+下面是部分功能的运行效果展示：
+#### 5.4.1 螺旋上升
 
-https://github.com/user-attachments/assets/74085f1c-5c7d-415a-9129-29bbb5b7af26
+<img width="480" height="300" alt="螺旋上升" src="https://github.com/user-attachments/assets/5c56a9ea-0df6-40a0-ae20-0ff7d195f811" />
+
+#### 5.4.2 原地旋转
+
+<img width="480" height="300" alt="旋转" src="https://github.com/user-attachments/assets/b8468745-3474-4cf6-a809-6a9a9cee5487" />
+
+#### 5.4.3 切换飞行速度
+
+<img width="480" height="300" alt="变速" src="https://github.com/user-attachments/assets/49644d99-4c9d-4235-bc18-252b832a3f3a" />
 
 ## 6. 功能扩展与未来规划
+  在现有基础飞行控制能力之上，本系统仍有较大的扩展空间。未来将围绕环境感知、路径规划、视觉任务与数据可视化四个方向持续迭代，逐步构建更智能、更稳定的无人机控制体系，为后续复杂场景下的算法验证与应用开发提供更完善的平台支撑。
 - 环境感知融合：接入AirSim激光雷达、视觉传感器，开发障碍物检测与自动避障功能
 - 智能路径规划：引入A*、RRT等路径规划算法，实现自定义航点自主飞行
 - 视觉跟踪增强：结合OpenCV图像识别，实现目标跟随、区域巡航等智能任务
