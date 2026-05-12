@@ -220,7 +220,7 @@ $$
    client.moveToZAsync(HEIGHT, 1).join()
 ```
 
-   <img width="480" height="300" style="object-fit: cover; object-position: left top;" alt="4 1" src="https://github.com/user-attachments/assets/f5bf4e58-82bd-43b5-a5d0-b91aca3fc963" />
+   <img width="1280" height="642" alt="平稳飞行512" src="https://github.com/user-attachments/assets/c62730be-1c40-419d-9e4c-e94b18f254b2" />
 
 ### 4.2 飞行时抖动严重
 - **根本原因**：
@@ -241,7 +241,7 @@ $$
    now_speed = SPEED * speed_ratio[speed_level - 1] * smooth
    client.moveByVelocityBodyFrameAsync(now_speed,0,0,0.1)
 ```
-   <img width="480" height="300" alt="converted" src="https://github.com/user-attachments/assets/f9f4b3ad-7c67-44c5-bfde-ff34d3d56ee0" />  
+   <img width="1280" height="642" alt="平稳飞行512" src="https://github.com/user-attachments/assets/c62730be-1c40-419d-9e4c-e94b18f254b2" />  
 
 ### 4.3 按下自动返航键无人机无反应
 - **根本原因**：
@@ -260,7 +260,9 @@ $$
   if key.char == 'b':
       threading.Thread(target=auto_return_home, daemon=True).start()
 ```
-  <img width="480" height="300" alt="converted" src="https://github.com/user-attachments/assets/e8772df7-ec50-405f-80fc-56ea65aab325" />
+
+ <img width="1280" height="640" alt="返航512" src="https://github.com/user-attachments/assets/c8f5cbc9-9af9-4e8e-9063-4eb2df2b62b4" />
+
   
 ### 4.4 自动轨迹模式运行时，键盘操控失灵无响应
 - **根本原因**：
@@ -279,7 +281,8 @@ $$
   if key.char == 'o': start_orbit()
   if key.char == 'm': start_square()
 ```
-  <img width="480" height="300" alt="环形4 4" src="https://github.com/user-attachments/assets/13f26fc4-21ce-4d4c-9dbf-a89680663e59" />
+
+ <img width="1280" height="640" alt="环形512" src="https://github.com/user-attachments/assets/5eda9d8f-a704-414f-b4e1-e77f8da2e564" />
 
 ## 5. 系统运行效果
 ### 5.1 运行环境
@@ -315,15 +318,18 @@ $$
 下面是部分功能的运行效果展示：
 #### 5.4.1 螺旋上升
 
-<img width="480" height="300" alt="螺旋上升" src="https://github.com/user-attachments/assets/5c56a9ea-0df6-40a0-ae20-0ff7d195f811" />
+<img width="1280" height="564" alt="螺旋上升512" src="https://github.com/user-attachments/assets/292797e2-06bd-4199-9432-1d5999fb09b5" />
+
 
 #### 5.4.2 原地旋转
 
-<img width="480" height="300" alt="旋转" src="https://github.com/user-attachments/assets/b8468745-3474-4cf6-a809-6a9a9cee5487" />
+<img width="1280" height="632" alt="原地旋转512" src="https://github.com/user-attachments/assets/15a7ae42-f60b-413e-9dc9-b26501fd7218" />
+
 
 #### 5.4.3 切换飞行速度
 
-<img width="480" height="300" alt="变速" src="https://github.com/user-attachments/assets/49644d99-4c9d-4235-bc18-252b832a3f3a" />
+<img width="1280" height="632" alt="变速512" src="https://github.com/user-attachments/assets/3c98c691-9f1c-40e2-a330-a3a0ffb1512c" />
+
 
 ## 6. 功能扩展与未来规划
   在现有基础飞行控制能力之上，本系统仍有较大的扩展空间。未来将围绕环境感知、路径规划、视觉任务与数据可视化四个方向持续迭代，逐步构建更智能、更稳定的无人机控制体系，为后续复杂场景下的算法验证与应用开发提供更完善的平台支撑。
